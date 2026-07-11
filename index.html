@@ -1,27 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>Storage Compare Pro - Best Storage Comparison</title>
+<meta charset="UTF-8">
 
-<meta name="description" content="Compare SSD, HDD, NVMe, SD cards and cloud storage by price, speed, lifespan and value.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Storage Compare Pro | Compare Storage Devices</title>
+
+<meta name="description" content="Compare HDD, SSD, NVMe, USB, SD cards and cloud storage by price, speed, capacity and lifespan.">
 
 
 <style>
 
+* {
+    box-sizing:border-box;
+}
+
+
 body {
+
     margin:0;
-    font-family:Arial, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     background:#0f172a;
     color:#e2e8f0;
+
 }
 
 
 header {
 
-    background:linear-gradient(90deg,#0284c7,#1e293b);
-    padding:35px;
+    background:linear-gradient(135deg,#0284c7,#1e293b);
+    padding:50px 20px;
     text-align:center;
 
 }
@@ -29,15 +40,15 @@ header {
 
 header h1 {
 
-    font-size:38px;
-    margin:0;
+    font-size:42px;
+    margin:0 0 10px;
 
 }
 
 
 header p {
 
-    font-size:18px;
+    font-size:20px;
 
 }
 
@@ -56,7 +67,7 @@ nav a {
 
     color:white;
     text-decoration:none;
-    margin:15px;
+    margin:0 15px;
     font-weight:bold;
 
 }
@@ -83,8 +94,8 @@ main {
 .section {
 
     background:#1e293b;
-    padding:25px;
     border-radius:15px;
+    padding:25px;
     margin-bottom:25px;
 
 }
@@ -93,18 +104,46 @@ main {
 
 .ad {
 
-    background:#1e293b;
+    background:#111827;
     border:2px dashed #64748b;
-    padding:25px;
+    padding:30px;
     text-align:center;
-    margin-bottom:25px;
     color:#94a3b8;
+    margin-bottom:25px;
 
 }
 
 
 
-.cards {
+h2 {
+
+    color:#38bdf8;
+
+}
+
+
+
+.recommendations {
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+
+}
+
+
+
+.recommendation {
+
+    background:#334155;
+    padding:20px;
+    border-radius:12px;
+
+}
+
+
+
+.products {
 
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -116,9 +155,9 @@ main {
 
 .card {
 
-    background:#1e293b;
+    background:#334155;
     padding:20px;
-    border-radius:15px;
+    border-radius:12px;
 
 }
 
@@ -136,18 +175,10 @@ main {
 
 
 
-.card h2 {
-
-    color:#38bdf8;
-
-}
-
-
-
 .price {
 
     color:#22c55e;
-    font-size:25px;
+    font-size:24px;
     font-weight:bold;
 
 }
@@ -167,11 +198,10 @@ button {
 
     background:#0ea5e9;
     color:white;
-    border:none;
+    border:0;
     padding:12px;
     border-radius:6px;
     cursor:pointer;
-    margin:5px;
 
 }
 
@@ -180,6 +210,19 @@ button {
 button:hover {
 
     background:#0284c7;
+
+}
+
+
+
+input, select {
+
+    padding:12px;
+    margin:5px;
+    border-radius:6px;
+    border:0;
+    background:#475569;
+    color:white;
 
 }
 
@@ -194,10 +237,10 @@ table {
 
 
 
-th, td {
+td, th {
 
     padding:12px;
-    border-bottom:1px solid #475569;
+    border-bottom:1px solid #64748b;
     text-align:left;
 
 }
@@ -215,9 +258,8 @@ th {
 footer {
 
     background:#020617;
-    padding:25px;
     text-align:center;
-    color:#94a3b8;
+    padding:25px;
 
 }
 
@@ -225,25 +267,23 @@ footer {
 
 </style>
 
-
 </head>
-
 
 
 <body>
 
 
-
 <header>
 
-<h1>Storage Compare Pro</h1>
+<h1>
+Storage Compare Pro
+</h1>
 
 <p>
-Compare storage technology, prices, performance and lifespan
+Compare storage technology, prices, speed and lifespan
 </p>
 
 </header>
-
 
 
 
@@ -263,9 +303,7 @@ Compare storage technology, prices, performance and lifespan
 
 
 
-
 <main>
-
 
 
 <div class="ad">
@@ -280,68 +318,100 @@ Advertisement Space
 
 
 
-
-
 <div class="section">
 
 
-<h1>🏆 Recommended Storage Choices</h1>
+<h2>
+🏆 Recommended Storage
+</h2>
 
 
 
-<h2>🎮 Best Gaming Storage</h2>
-
-<p>
-Samsung 990 Pro NVMe SSD — Extremely fast loading times
-and excellent performance for gaming computers.
-</p>
+<div class="recommendations">
 
 
+<div class="recommendation">
 
-<h2>💰 Best Budget Storage</h2>
+<h3>🎮 Gaming</h3>
 
 <p>
-Crucial MX500 SSD — Great balance between price,
-speed and reliability.
+Samsung 990 Pro NVMe SSD
 </p>
-
-
-
-<h2>📦 Best Large Storage</h2>
 
 <p>
-Seagate IronWolf HDD — Affordable high-capacity storage
-for backups and NAS systems.
+Maximum speed for games and applications.
 </p>
-
-
-
-<h2>📸 Best Camera Storage</h2>
-
-<p>
-SanDisk Extreme Pro SD Card — Designed for high-speed
-photo and 4K video recording.
-</p>
-
 
 </div>
 
 
 
+<div class="recommendation">
+
+<h3>💰 Budget</h3>
+
+<p>
+Crucial MX500 SSD
+</p>
+
+<p>
+Affordable and reliable upgrade.
+</p>
+
+</div>
+
+
+
+<div class="recommendation">
+
+<h3>📦 Large Storage</h3>
+
+<p>
+Seagate IronWolf HDD
+</p>
+
+<p>
+Best for backups and NAS servers.
+</p>
+
+</div>
+
+
+
+<div class="recommendation">
+
+<h3>📸 Cameras</h3>
+
+<p>
+SanDisk Extreme Pro SD Card
+</p>
+
+<p>
+Fast storage for photos and video.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
 
 
 <div class="section">
 
 
-<h1>Storage Comparison</h1>
+<h2>
+Storage Comparison
+</h2>
 
 
 <table>
 
-
 <tr>
 
-<th>Storage</th>
+<th>Type</th>
 
 <th>Speed</th>
 
@@ -360,10 +430,9 @@ photo and 4K video recording.
 
 <td>7-10 years</td>
 
-<td>Gaming / Professional</td>
+<td>Gaming / Workstations</td>
 
 </tr>
-
 
 
 <tr>
@@ -379,7 +448,6 @@ photo and 4K video recording.
 </tr>
 
 
-
 <tr>
 
 <td>HDD</td>
@@ -388,10 +456,9 @@ photo and 4K video recording.
 
 <td>3-7 years</td>
 
-<td>Backups / Archives</td>
+<td>Backups</td>
 
 </tr>
-
 
 
 <tr>
@@ -407,7 +474,6 @@ photo and 4K video recording.
 </tr>
 
 
-
 </table>
 
 
@@ -415,526 +481,59 @@ photo and 4K video recording.
 
 
 
-
-
 <div class="section">
 
 
-<h1>Storage Products</h1>
+<h2>
+Find Storage
+</h2>
 
 
-<div id="products" class="cards">
+<input id="search" placeholder="Search product">
 
 
-</div>
-
-
-</div>
-<!DOCTYPE html>
-<html>
-
-<head>
-
-<title>Storage Compare Pro - Best Storage Comparison</title>
-
-<meta name="description" content="Compare SSD, HDD, NVMe, SD cards and cloud storage by price, speed, lifespan and value.">
-
-
-<style>
-
-body {
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#0f172a;
-    color:#e2e8f0;
-}
-
-
-header {
-
-    background:linear-gradient(90deg,#0284c7,#1e293b);
-    padding:35px;
-    text-align:center;
-
-}
-
-
-header h1 {
-
-    font-size:38px;
-    margin:0;
-
-}
-
-
-header p {
-
-    font-size:18px;
-
-}
-
-
-
-nav {
-
-    background:#020617;
-    padding:15px;
-    text-align:center;
-
-}
-
-
-nav a {
-
-    color:white;
-    text-decoration:none;
-    margin:15px;
-    font-weight:bold;
-
-}
-
-
-nav a:hover {
-
-    color:#38bdf8;
-
-}
-
-
-
-main {
-
-    max-width:1200px;
-    margin:auto;
-    padding:25px;
-
-}
-
-
-
-.section {
-
-    background:#1e293b;
-    padding:25px;
-    border-radius:15px;
-    margin-bottom:25px;
-
-}
-
-
-
-.ad {
-
-    background:#1e293b;
-    border:2px dashed #64748b;
-    padding:25px;
-    text-align:center;
-    margin-bottom:25px;
-    color:#94a3b8;
-
-}
-
-
-
-.cards {
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
-
-}
-
-
-
-.card {
-
-    background:#1e293b;
-    padding:20px;
-    border-radius:15px;
-
-}
-
-
-
-.card img {
-
-    width:100%;
-    height:180px;
-    object-fit:contain;
-    background:#020617;
-    border-radius:10px;
-
-}
-
-
-
-.card h2 {
-
-    color:#38bdf8;
-
-}
-
-
-
-.price {
-
-    color:#22c55e;
-    font-size:25px;
-    font-weight:bold;
-
-}
-
-
-
-.rating {
-
-    color:#facc15;
-    font-size:20px;
-
-}
-
-
-
-button {
-
-    background:#0ea5e9;
-    color:white;
-    border:none;
-    padding:12px;
-    border-radius:6px;
-    cursor:pointer;
-    margin:5px;
-
-}
-
-
-
-button:hover {
-
-    background:#0284c7;
-
-}
-
-
-
-table {
-
-    width:100%;
-    border-collapse:collapse;
-
-}
-
-
-
-th, td {
-
-    padding:12px;
-    border-bottom:1px solid #475569;
-    text-align:left;
-
-}
-
-
-
-th {
-
-    color:#38bdf8;
-
-}
-
-
-
-footer {
-
-    background:#020617;
-    padding:25px;
-    text-align:center;
-    color:#94a3b8;
-
-}
-
-
-
-</style>
-
-
-</head>
-
-
-
-<body>
-
-
-
-<header>
-
-<h1>Storage Compare Pro</h1>
-
-<p>
-Compare storage technology, prices, performance and lifespan
-</p>
-
-</header>
-
-
-
-
-<nav>
-
-<a href="index.html">Home</a>
-
-<a href="articles.html">Articles</a>
-
-<a href="about.html">About</a>
-
-<a href="contact.html">Contact</a>
-
-<a href="privacy.html">Privacy</a>
-
-</nav>
-
-
-
-
-<main>
-
-
-
-<div class="ad">
-
-Advertisement Space
-
-<br>
-
-728x90 Banner
-
-</div>
-
-
-
-
-
-<div class="section">
-
-
-<h1>🏆 Recommended Storage Choices</h1>
-
-
-
-<h2>🎮 Best Gaming Storage</h2>
-
-<p>
-Samsung 990 Pro NVMe SSD — Extremely fast loading times
-and excellent performance for gaming computers.
-</p>
-
-
-
-<h2>💰 Best Budget Storage</h2>
-
-<p>
-Crucial MX500 SSD — Great balance between price,
-speed and reliability.
-</p>
-
-
-
-<h2>📦 Best Large Storage</h2>
-
-<p>
-Seagate IronWolf HDD — Affordable high-capacity storage
-for backups and NAS systems.
-</p>
-
-
-
-<h2>📸 Best Camera Storage</h2>
-
-<p>
-SanDisk Extreme Pro SD Card — Designed for high-speed
-photo and 4K video recording.
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="section">
-
-
-<h1>Storage Comparison</h1>
-
-
-<table>
-
-
-<tr>
-
-<th>Storage</th>
-
-<th>Speed</th>
-
-<th>Lifespan</th>
-
-<th>Best Use</th>
-
-</tr>
-
-
-<tr>
-
-<td>NVMe SSD</td>
-
-<td>★★★★★</td>
-
-<td>7-10 years</td>
-
-<td>Gaming / Professional</td>
-
-</tr>
-
-
-
-<tr>
-
-<td>SSD</td>
-
-<td>★★★★</td>
-
-<td>5-10 years</td>
-
-<td>Everyday computers</td>
-
-</tr>
-
-
-
-<tr>
-
-<td>HDD</td>
-
-<td>★★</td>
-
-<td>3-7 years</td>
-
-<td>Backups / Archives</td>
-
-</tr>
-
-
-
-<tr>
-
-<td>SD Card</td>
-
-<td>★★★</td>
-
-<td>3-5 years</td>
-
-<td>Cameras</td>
-
-</tr>
-
-
-
-</table>
-
-
-</div>
-
-
-
-
-
-<div class="section">
-
-
-<h1>Storage Products</h1>
-
-
-<div id="products" class="cards">
-
-
-</div>
-
-
-</div>
-
-<div class="section">
-
-
-<h2>Find Storage</h2>
-
-
-<input 
-type="text"
-id="search"
-placeholder="Search product..."
->
-
-
-<select id="filter">
-
+<select id="category">
 
 <option value="all">
-All Storage
+All
 </option>
-
-
-<option value="NVMe SSD">
-NVMe SSD
-</option>
-
 
 <option value="SSD">
 SSD
 </option>
 
+<option value="NVMe">
+NVMe
+</option>
 
 <option value="HDD">
 HDD
 </option>
 
-
-<option value="SD Card">
+<option value="SD">
 SD Card
 </option>
 
-
-<option value="USB Drive">
-USB Drive
+<option value="Cloud">
+Cloud
 </option>
-
-
-<option value="Cloud Storage">
-Cloud Storage
-</option>
-
 
 </select>
-
 
 
 <select id="sort">
 
-
 <option value="default">
-Sort by
+Sort
 </option>
 
-
-<option value="cheap">
+<option value="price">
 Lowest Price
 </option>
 
-
-<option value="expensive">
-Highest Price
+<option value="speed">
+Fastest
 </option>
-
 
 </select>
 
@@ -943,28 +542,313 @@ Highest Price
 
 
 
+<div class="section">
 
 
-<div class="ad">
+<h2>
+Products
+</h2>
 
-Advertisement Space
 
-<br>
+<div id="products" class="products">
 
-300x250
+</div>
+
+
+</div>
+
+<script>
+
+
+const products = [
+
+
+{
+name:"Samsung 990 Pro",
+type:"NVMe",
+image:"images/samsung990pro.jpg",
+capacity:"2TB",
+price:180,
+speed:7450,
+lifespan:"8-10 years",
+rating:"★★★★★",
+warranty:"5 years",
+use:"Gaming and professional work",
+buy:"#"
+},
+
+
+{
+name:"WD Black SN850X",
+type:"NVMe",
+image:"images/wdsn850x.jpg",
+capacity:"2TB",
+price:160,
+speed:7300,
+lifespan:"8-10 years",
+rating:"★★★★★",
+warranty:"5 years",
+use:"High performance gaming PCs",
+buy:"#"
+},
+
+
+{
+name:"Samsung 870 EVO",
+type:"SSD",
+image:"images/samsung870evo.jpg",
+capacity:"1TB",
+price:90,
+speed:560,
+lifespan:"5-10 years",
+rating:"★★★★",
+warranty:"5 years",
+use:"Laptop and desktop upgrades",
+buy:"#"
+},
+
+
+{
+name:"Crucial MX500",
+type:"SSD",
+image:"images/crucialmx500.jpg",
+capacity:"1TB",
+price:75,
+speed:560,
+lifespan:"5-10 years",
+rating:"★★★★",
+warranty:"5 years",
+use:"Budget storage upgrade",
+buy:"#"
+},
+
+
+{
+name:"Seagate IronWolf",
+type:"HDD",
+image:"images/seagateironwolf.jpg",
+capacity:"8TB",
+price:170,
+speed:210,
+lifespan:"3-7 years",
+rating:"★★★★",
+warranty:"3 years",
+use:"NAS and backup storage",
+buy:"#"
+},
+
+
+{
+name:"WD Red Plus",
+type:"HDD",
+image:"images/wdredplus.jpg",
+capacity:"6TB",
+price:140,
+speed:175,
+lifespan:"3-7 years",
+rating:"★★★★",
+warranty:"3 years",
+use:"Home servers",
+buy:"#"
+},
+
+
+{
+name:"SanDisk Extreme Pro",
+type:"SD",
+image:"images/sandiskextremepro.jpg",
+capacity:"1TB",
+price:120,
+speed:200,
+lifespan:"3-5 years",
+rating:"★★★★★",
+warranty:"Limited lifetime",
+use:"Cameras and 4K video",
+buy:"#"
+},
+
+
+{
+name:"Samsung Pro Plus",
+type:"SD",
+image:"images/samsungproplus.jpg",
+capacity:"512GB",
+price:70,
+speed:180,
+lifespan:"3-5 years",
+rating:"★★★★",
+warranty:"10 years",
+use:"Phones and cameras",
+buy:"#"
+},
+
+
+{
+name:"Google One",
+type:"Cloud",
+image:"images/googleone.jpg",
+capacity:"2TB",
+price:100,
+speed:0,
+lifespan:"Subscription",
+rating:"★★★★",
+warranty:"Service based",
+use:"Online backup",
+buy:"#"
+}
+
+
+
+];
+
+
+
+
+
+function displayProducts(items){
+
+
+const container =
+document.getElementById("products");
+
+
+container.innerHTML="";
+
+
+
+items.forEach(product=>{
+
+
+container.innerHTML += `
+
+
+
+<div class="card">
+
+
+<img src="${product.image}" 
+alt="${product.name}">
+
+
+
+<h2>
+
+${product.name}
+
+</h2>
+
+
+
+<p>
+
+<strong>Type:</strong>
+${product.type}
+
+</p>
+
+
+
+<p>
+
+<strong>Capacity:</strong>
+${product.capacity}
+
+</p>
+
+
+
+<p class="price">
+
+$${product.price}
+
+</p>
+
+
+
+<p>
+
+<strong>Speed:</strong>
+
+${product.speed === 0 ? 
+"Internet dependent" :
+product.speed+" MB/s"}
+
+</p>
+
+
+
+<p>
+
+<strong>Lifespan:</strong>
+
+${product.lifespan}
+
+</p>
+
+
+
+<p>
+
+<strong>Warranty:</strong>
+
+${product.warranty}
+
+</p>
+
+
+
+<p>
+
+<strong>Best for:</strong>
+
+${product.use}
+
+</p>
+
+
+
+<div class="rating">
+
+${product.rating}
 
 </div>
 
 
 
+<button>
+Compare
+</button>
+
+
+<button onclick="window.open('${product.buy}')">
+
+Buy
+
+</button>
 
 
 
-<script>
+</div>
+
+
+
+`;
+
+
+});
+
+
+}
+
+
+
+displayProducts(products);'
+
+
+
 
 
 function updateProducts(){
-
 
 
 let search =
@@ -975,9 +859,9 @@ document
 
 
 
-let filter =
+let category =
 document
-.getElementById("filter")
+.getElementById("category")
 .value;
 
 
@@ -989,25 +873,24 @@ document
 
 
 
+let filtered =
+products.filter(product=>{
 
-let results = products.filter(product => {
 
-
-
-let matchName =
+let searchMatch =
 product.name
 .toLowerCase()
 .includes(search);
 
 
 
-let matchType =
-filter === "all" ||
-product.type === filter;
+let categoryMatch =
+category==="all" ||
+product.type===category;
 
 
 
-return matchName && matchType;
+return searchMatch && categoryMatch;
 
 
 
@@ -1016,11 +899,10 @@ return matchName && matchType;
 
 
 
+if(sort==="price"){
 
-if(sort === "cheap"){
 
-
-results.sort((a,b)=>
+filtered.sort((a,b)=>
 a.price-b.price
 );
 
@@ -1029,11 +911,11 @@ a.price-b.price
 
 
 
-if(sort === "expensive"){
+if(sort==="speed"){
 
 
-results.sort((a,b)=>
-b.price-a.price
+filtered.sort((a,b)=>
+b.speed-a.speed
 );
 
 
@@ -1041,7 +923,8 @@ b.price-a.price
 
 
 
-displayProducts(results);
+
+displayProducts(filtered);
 
 
 
@@ -1061,7 +944,7 @@ updateProducts
 
 
 document
-.getElementById("filter")
+.getElementById("category")
 .addEventListener(
 "change",
 updateProducts
@@ -1078,7 +961,27 @@ updateProducts
 
 
 
+
+
 </script>
+
+
+
+
+
+<div class="ad">
+
+
+Advertisement Space
+
+
+<br>
+
+
+300x250
+
+
+</div>
 
 
 
@@ -1088,25 +991,18 @@ updateProducts
 
 
 <p>
-
 © 2026 Storage Compare Pro
-
 </p>
 
 
 <p>
-
-Compare storage technology.
-Choose better hardware.
-
+Compare storage. Understand technology. Choose better hardware.
 </p>
 
 
 <p>
-
 Contact:
 enzobetito@gmail.com
-
 </p>
 
 
@@ -1114,8 +1010,11 @@ enzobetito@gmail.com
 
 
 
+</main>
+
 
 </body>
 
 
 </html>
+
