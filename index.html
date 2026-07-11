@@ -1,24 +1,39 @@
+
 <!DOCTYPE html>
 
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Storage Compare Pro+</title>
+<html>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<head>
+
+<title>Storage Compare Pro - Compare Data Storage</title>
+
+<meta name="description" content="Compare HDD, SSD, NVMe, USB, SD cards and cloud storage by price, capacity, speed and lifespan.">
 
 <style>
+
 body {
     margin:0;
-    font-family: Arial, sans-serif;
+    font-family:Arial, sans-serif;
     background:#0f172a;
     color:#e2e8f0;
-    nav {
+}
+
+
+header {
+    background:linear-gradient(90deg,#0ea5e9,#1e293b);
+    padding:30px;
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+}
+
+
+nav {
     background:#020617;
     padding:15px;
     text-align:center;
 }
+
 
 nav a {
     color:white;
@@ -27,88 +42,144 @@ nav a {
     font-weight:bold;
 }
 
+
 nav a:hover {
     color:#38bdf8;
 }
+
+
+main {
+    max-width:1200px;
+    margin:auto;
+    padding:25px;
 }
 
-header {
-    background:linear-gradient(90deg,#0ea5e9,#1e293b);
-    padding:20px;
-    text-align:center;
-    font-size:1.8rem;
-}
-
-.container {
-    display:grid;
-    grid-template-columns: 1fr 300px;
-    gap:20px;
-    padding:20px;
-}
-
-.main { width:100%; }
-
-.sidebar {
-    background:#020617;
-    padding:15px;
-}
 
 .ad {
-    border:2px dashed #334155;
-    padding:20px;
-    margin-bottom:20px;
+    background:#1e293b;
+    border:2px dashed #475569;
+    padding:25px;
     text-align:center;
     color:#94a3b8;
+    margin:20px 0;
 }
+
+
+.controls {
+    background:#1e293b;
+    padding:20px;
+    border-radius:12px;
+}
+
+
+input, select {
+    padding:10px;
+    margin:10px;
+    background:#334155;
+    color:white;
+    border:none;
+    border-radius:5px;
+}
+
+
+
+.cards {
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+
+}
+
 
 .card {
+
     background:#1e293b;
-    padding:15px;
-    margin-bottom:15px;
-    border-radius:10px;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+
 }
 
-.longevity-bar {
-    height:10px;
+
+.card h2 {
+
+    color:#38bdf8;
+
+}
+
+
+.stat {
+
+    margin:10px 0;
+
+}
+
+
+.bar {
+
     background:#334155;
-    border-radius:5px;
+    height:12px;
+    border-radius:10px;
     overflow:hidden;
-    margin-top:5px;
+
 }
 
-.longevity-fill {
+
+.fill {
+
     height:100%;
     background:#22c55e;
+
 }
+
 
 button {
-    padding:8px 12px;
+
     background:#0ea5e9;
     border:none;
+    padding:10px 15px;
     color:white;
-    cursor:pointer;
     border-radius:5px;
+    cursor:pointer;
+
 }
 
-select {
-    padding:8px;
-    margin-bottom:15px;
+
+button:hover {
+
+    background:#0284c7;
+
 }
 
-.highlight {
-    border:2px solid #22c55e;
-}
+
 
 footer {
+
     text-align:center;
-    padding:20px;
+    padding:25px;
     background:#020617;
+    color:#94a3b8;
+
 }
+
+
 </style>
 
 </head>
 
 <body>
+
+<header>
+
+Storage Compare Pro
+
+<p style="font-size:18px;">
+Compare storage by price, speed, capacity and lifespan
+</p>
+
+</header>
+
 <nav>
 
 <a href="index.html">Home</a>
@@ -122,151 +193,318 @@ footer {
 <a href="privacy.html">Privacy</a>
 
 </nav>
-<header>Storage Compare Pro+ (Longevity Edition)</header>
 
-<div class="container">
+<main>
 
-<div class="main">
+<div class="ad">
 
-<div class="ad">Header Ad (728x90)</div>
+Advertisement Space (728x90)
 
-<h2>Filter</h2>
+<br>
+
+Google AdSense placement
+
+</div>
+
+<div class="controls">
+
+<h2>Storage Search</h2>
+
+<input
+type="text"
+id="search"
+placeholder="Search storage type..."
+
+>
+
 <select id="filter">
-    <option value="all">All</option>
-    <option value="fast">Fast Only</option>
-    <option value="cheap">Cheapest</option>
-    <option value="longest">Longest Lifespan</option>
+
+<option value="all">
+All Storage
+</option>
+
+<option value="cheap">
+Lowest Cost/TB
+</option>
+
+<option value="long">
+Longest Lifespan
+</option>
+
+<option value="fast">
+Fastest
+</option>
+
 </select>
 
-<div id="cards"></div>
+</div>
 
-<h2>Cost vs Longevity</h2>
-<canvas id="chart"></canvas>
+<h1>Storage Comparison</h1>
 
-<h2>Saved Comparisons</h2>
-<div id="saved"></div>
+<div id="cards" class="cards"></div>
 
-<div class="ad">In-content Ad</div>
+<div class="ad">
+
+Advertisement Space (300x250)
 
 </div>
 
-<div class="sidebar">
-<div class="ad">Sidebar Ad (300x250)</div>
-<div class="ad">Affiliate Links Area</div>
-</div>
+</main>
 
-</div>
+<footer>
 
-<footer>© 2026 Storage Compare Pro+</footer>
+© 2026 Storage Compare Pro
+
+</footer>
 
 <script>
 
-const storageData = [
-    {name:"HDD", speed:1, price:80, capacity:4, lifespan:5, link:"#"},
-    {name:"SSD", speed:3, price:120, capacity:2, lifespan:7, link:"#"},
-    {name:"NVMe", speed:5, price:180, capacity:2, lifespan:6, link:"#"},
-    {name:"USB", speed:2, price:40, capacity:0.5, lifespan:4, link:"#"},
-    {name:"SD Card", speed:2, price:60, capacity:0.5, lifespan:4, link:"#"},
-    {name:"Cloud (Year)", speed:4, price:100, capacity:2, lifespan:100, link:"#"} // depends on provider
+
+const storage = [
+
+{
+name:"HDD",
+capacity:"1TB - 24TB",
+price:100,
+tb:4,
+speed:2,
+life:6,
+description:"Affordable high capacity storage for backups and archives."
+},
+
+
+{
+name:"SATA SSD",
+capacity:"250GB - 8TB",
+price:120,
+tb:2,
+speed:4,
+life:8,
+description:"Fast everyday storage for computers and gaming."
+},
+
+
+{
+name:"NVMe SSD",
+capacity:"500GB - 8TB",
+price:180,
+tb:2,
+speed:5,
+life:7,
+description:"Ultra-fast storage for gaming and professional workloads."
+},
+
+
+{
+name:"USB Flash Drive",
+capacity:"16GB - 1TB",
+price:40,
+tb:0.5,
+speed:3,
+life:5,
+description:"Portable storage for transferring files."
+},
+
+
+{
+name:"SD Card",
+capacity:"32GB - 1TB",
+price:60,
+tb:0.5,
+speed:3,
+life:5,
+description:"Used in cameras, phones and portable devices."
+},
+
+
+{
+name:"Cloud Storage",
+capacity:"Flexible",
+price:100,
+tb:2,
+speed:4,
+life:100,
+description:"Online storage accessible anywhere."
+}
+
 ];
 
-function costPerTB(item){
-    return item.price / item.capacity;
+
+
+function cost(item){
+
+return (item.price/item.tb).toFixed(2);
+
 }
 
-function maxLifespan(){
-    return Math.max(...storageData.map(d=>d.lifespan));
-}
 
-function renderCards(filter="all"){
-    const container = document.getElementById("cards");
-    container.innerHTML="";
 
-    let data = [...storageData];
+function display(data){
 
-    if(filter==="fast") data = data.filter(d=>d.speed>=4);
-    if(filter==="cheap") data = data.sort((a,b)=>costPerTB(a)-costPerTB(b));
-    if(filter==="longest") data = data.sort((a,b)=>b.lifespan-a.lifespan);
 
-    const best = data.reduce((a,b)=> a.lifespan>b.lifespan?a:b);
+let container=document.getElementById("cards");
 
-    data.forEach(item=>{
-        const div = document.createElement("div");
-        div.className="card";
+container.innerHTML="";
 
-        if(item.name === best.name) div.classList.add("highlight");
 
-        const percent = (item.lifespan / maxLifespan()) * 100;
+data.forEach(item=>{
 
-        div.innerHTML = `
-            <h3>${item.name}</h3>
-            <p>Capacity: ${item.capacity} TB</p>
-            <p>Price: $${item.price}</p>
-            <p>Cost/TB: $${costPerTB(item).toFixed(2)}</p>
-            <p><strong>Lifespan:</strong> ~${item.lifespan} years</p>
 
-            <div class="longevity-bar">
-                <div class="longevity-fill" style="width:${percent}%"></div>
-            </div>
+let lifespan=(item.life/100)*100;
 
-            <br>
-            <a href="${item.link}" target="_blank">Buy (Affiliate)</a><br><br>
-            <button onclick='saveItem("${item.name}")'>Save</button>
-        `;
 
-        container.appendChild(div);
-    });
+container.innerHTML += `
 
-    updateChart(data);
-}
 
-function updateChart(data){
-    const ctx = document.getElementById("chart");
+<div class="card">
 
-    if(window.chart) window.chart.destroy();
 
-    window.chart = new Chart(ctx, {
-        type:"bar",
-        data:{
-            labels:data.map(d=>d.name),
-            datasets:[
-                {
-                    label:"Cost per TB",
-                    data:data.map(d=>costPerTB(d))
-                },
-                {
-                    label:"Lifespan (years)",
-                    data:data.map(d=>d.lifespan)
-                }
-            ]
-        }
-    });
-}
+<h2>${item.name}</h2>
 
-function saveItem(name){
-    let saved = JSON.parse(localStorage.getItem("saved")) || [];
-    if(!saved.includes(name)){
-        saved.push(name);
-        localStorage.setItem("saved", JSON.stringify(saved));
-    }
-    renderSaved();
-}
 
-function renderSaved(){
-    let saved = JSON.parse(localStorage.getItem("saved")) || [];
-    const div = document.getElementById("saved");
+<p>${item.description}</p>
 
-    div.innerHTML = saved.map(s=>`<div class="card">${s}</div>`).join("");
-}
 
-document.getElementById("filter").addEventListener("change", e=>{
-    renderCards(e.target.value);
+<div class="stat">
+<strong>Capacity:</strong>
+${item.capacity}
+</div>
+
+
+<div class="stat">
+<strong>Example Price:</strong>
+$${item.price}
+</div>
+
+
+<div class="stat">
+<strong>Cost per TB:</strong>
+$${cost(item)}
+</div>
+
+
+<div class="stat">
+<strong>Speed:</strong>
+${item.speed}/5
+</div>
+
+
+<div class="stat">
+<strong>Lifespan:</strong>
+${item.life} years
+</div>
+
+
+<div class="bar">
+
+<div class="fill" style="width:${lifespan}%"></div>
+
+</div>
+
+
+<br>
+
+
+<button>
+Compare
+</button>
+
+
+<button>
+Buy
+</button>
+
+
+</div>
+
+
+`;
+
 });
 
-renderCards();
-renderSaved();
+
+}
+
+
+
+function update(){
+
+
+let value=document
+.getElementById("search")
+.value
+.toLowerCase();
+
+
+let filter=document
+.getElementById("filter")
+.value;
+
+
+
+let result=storage.filter(x=>
+
+x.name.toLowerCase()
+.includes(value)
+
+);
+
+
+
+if(filter==="cheap"){
+
+result.sort((a,b)=>
+cost(a)-cost(b)
+);
+
+}
+
+
+
+if(filter==="long"){
+
+result.sort((a,b)=>
+b.life-a.life
+);
+
+}
+
+
+
+if(filter==="fast"){
+
+result.sort((a,b)=>
+b.speed-a.speed
+);
+
+}
+
+
+
+display(result);
+
+
+}
+
+
+
+document
+.getElementById("search")
+.addEventListener("input",update);
+
+
+
+document
+.getElementById("filter")
+.addEventListener("change",update);
+
+
+
+display(storage);
+
 
 </script>
 
 </body>
+
 </html>
