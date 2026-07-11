@@ -1,13 +1,13 @@
 
 <!DOCTYPE html>
-
 <html>
 
 <head>
 
-<title>Storage Compare Pro - Compare Data Storage</title>
+<title>Storage Compare Pro - Storage Comparison</title>
 
-<meta name="description" content="Compare HDD, SSD, NVMe, USB, SD cards and cloud storage by price, capacity, speed and lifespan.">
+<meta name="description" content="Compare SSD, HDD, NVMe, USB, SD cards and cloud storage by price, speed, capacity, lifespan and value.">
+
 
 <style>
 
@@ -20,12 +20,22 @@ body {
 
 
 header {
-    background:linear-gradient(90deg,#0ea5e9,#1e293b);
-    padding:30px;
+    background:linear-gradient(90deg,#0284c7,#1e293b);
+    padding:35px;
     text-align:center;
-    font-size:32px;
-    font-weight:bold;
 }
+
+
+header h1 {
+    font-size:36px;
+    margin:0;
+}
+
+
+header p {
+    font-size:18px;
+}
+
 
 
 nav {
@@ -36,70 +46,88 @@ nav {
 
 
 nav a {
+
     color:white;
     text-decoration:none;
     margin:15px;
     font-weight:bold;
+
 }
 
 
 nav a:hover {
+
     color:#38bdf8;
+
 }
+
 
 
 main {
+
     max-width:1200px;
     margin:auto;
     padding:25px;
+
 }
+
 
 
 .ad {
+
     background:#1e293b;
-    border:2px dashed #475569;
+    border:2px dashed #64748b;
     padding:25px;
     text-align:center;
+    margin:25px 0;
     color:#94a3b8;
-    margin:20px 0;
+
 }
 
 
-.controls {
+
+.tools {
+
     background:#1e293b;
     padding:20px;
     border-radius:12px;
+    margin-bottom:25px;
+
 }
+
 
 
 input, select {
-    padding:10px;
-    margin:10px;
+
+    padding:12px;
+    margin:8px;
     background:#334155;
-    color:white;
     border:none;
-    border-radius:5px;
+    border-radius:6px;
+    color:white;
+
 }
 
 
 
-.cards {
+.products {
 
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:20px;
 
 }
+
 
 
 .card {
 
     background:#1e293b;
     padding:25px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.3);
+    border-radius:15px;
 
 }
+
 
 
 .card h2 {
@@ -109,41 +137,37 @@ input, select {
 }
 
 
-.stat {
+
+.price {
+
+    font-size:25px;
+    color:#22c55e;
+    font-weight:bold;
+
+}
+
+
+
+.info {
 
     margin:10px 0;
 
 }
 
 
-.bar {
-
-    background:#334155;
-    height:12px;
-    border-radius:10px;
-    overflow:hidden;
-
-}
-
-
-.fill {
-
-    height:100%;
-    background:#22c55e;
-
-}
-
 
 button {
 
     background:#0ea5e9;
-    border:none;
-    padding:10px 15px;
     color:white;
-    border-radius:5px;
+    border:none;
+    padding:12px;
+    border-radius:6px;
     cursor:pointer;
+    margin-top:10px;
 
 }
+
 
 
 button:hover {
@@ -156,29 +180,37 @@ button:hover {
 
 footer {
 
-    text-align:center;
-    padding:25px;
     background:#020617;
+    padding:25px;
+    text-align:center;
     color:#94a3b8;
 
 }
 
 
+
 </style>
+
 
 </head>
 
+
+
 <body>
+
+
 
 <header>
 
-Storage Compare Pro
+<h1>Storage Compare Pro</h1>
 
-<p style="font-size:18px;">
-Compare storage by price, speed, capacity and lifespan
+<p>
+Compare storage technology, prices, performance and lifespan
 </p>
 
 </header>
+
+
 
 <nav>
 
@@ -194,163 +226,279 @@ Compare storage by price, speed, capacity and lifespan
 
 </nav>
 
+
+
 <main>
+
+
 
 <div class="ad">
 
-Advertisement Space (728x90)
+Advertisement Space
 
 <br>
 
-Google AdSense placement
+728x90 Banner
 
 </div>
 
-<div class="controls">
 
-<h2>Storage Search</h2>
 
-<input
-type="text"
+
+<div class="tools">
+
+
+<h2>Find Storage</h2>
+
+
+<input 
 id="search"
-placeholder="Search storage type..."
-
+placeholder="Search product..."
 >
 
-<select id="filter">
+
+<select id="category">
 
 <option value="all">
-All Storage
+All Categories
 </option>
 
-<option value="cheap">
-Lowest Cost/TB
+
+<option value="SSD">
+SSD
 </option>
 
-<option value="long">
-Longest Lifespan
+
+<option value="NVMe">
+NVMe
 </option>
 
-<option value="fast">
-Fastest
+
+<option value="HDD">
+HDD
 </option>
+
+
+<option value="SD">
+SD Card
+</option>
+
+
+<option value="USB">
+USB
+</option>
+
+
+<option value="Cloud">
+Cloud
+</option>
+
 
 </select>
 
+
+
+<select id="sort">
+
+
+<option value="default">
+Sort by
+</option>
+
+
+<option value="price">
+Lowest Price
+</option>
+
+
+<option value="speed">
+Fastest
+</option>
+
+
+<option value="life">
+Longest Lifespan
+</option>
+
+
+</select>
+
+
 </div>
 
-<h1>Storage Comparison</h1>
 
-<div id="cards" class="cards"></div>
+
+<h1>Storage Products</h1>
+
+
+
+<div id="products" class="products"></div>
+
+
 
 <div class="ad">
 
-Advertisement Space (300x250)
+Advertisement Space
+
+<br>
+
+300x250
 
 </div>
 
+
+
 </main>
-
-<footer>
-
-© 2026 Storage Compare Pro
-
-</footer>
 
 <script>
 
 
-const storage = [
-
-{
-name:"HDD",
-capacity:"1TB - 24TB",
-price:100,
-tb:4,
-speed:2,
-life:6,
-description:"Affordable high capacity storage for backups and archives."
-},
+const products = [
 
 
 {
-name:"SATA SSD",
-capacity:"250GB - 8TB",
-price:120,
-tb:2,
-speed:4,
-life:8,
-description:"Fast everyday storage for computers and gaming."
-},
-
-
-{
-name:"NVMe SSD",
-capacity:"500GB - 8TB",
+name:"Samsung 990 Pro",
+category:"NVMe",
+capacity:"2TB",
 price:180,
-tb:2,
-speed:5,
-life:7,
-description:"Ultra-fast storage for gaming and professional workloads."
+speed:7450,
+life:8,
+warranty:"5 years",
+use:"Gaming, professional workloads",
+link:"#"
 },
 
 
 {
-name:"USB Flash Drive",
-capacity:"16GB - 1TB",
-price:40,
-tb:0.5,
-speed:3,
+name:"WD Black SN850X",
+category:"NVMe",
+capacity:"2TB",
+price:160,
+speed:7300,
+life:8,
+warranty:"5 years",
+use:"Gaming PCs and high performance systems",
+link:"#"
+},
+
+
+{
+name:"Samsung 870 EVO",
+category:"SSD",
+capacity:"1TB",
+price:90,
+speed:560,
+life:8,
+warranty:"5 years",
+use:"Everyday computers and laptops",
+link:"#"
+},
+
+
+{
+name:"Crucial MX500",
+category:"SSD",
+capacity:"1TB",
+price:75,
+speed:560,
+life:8,
+warranty:"5 years",
+use:"Budget upgrades",
+link:"#"
+},
+
+
+{
+name:"Seagate IronWolf",
+category:"HDD",
+capacity:"8TB",
+price:170,
+speed:210,
+life:6,
+warranty:"3 years",
+use:"NAS servers and backups",
+link:"#"
+},
+
+
+{
+name:"Western Digital Red Plus",
+category:"HDD",
+capacity:"6TB",
+price:140,
+speed:175,
+life:6,
+warranty:"3 years",
+use:"Home servers and storage archives",
+link:"#"
+},
+
+
+{
+name:"SanDisk Extreme Pro",
+category:"SD",
+capacity:"1TB",
+price:120,
+speed:200,
 life:5,
-description:"Portable storage for transferring files."
+warranty:"Lifetime limited",
+use:"Cameras, drones and video recording",
+link:"#"
 },
 
 
 {
-name:"SD Card",
-capacity:"32GB - 1TB",
-price:60,
-tb:0.5,
-speed:3,
+name:"Samsung Pro Plus",
+category:"SD",
+capacity:"512GB",
+price:70,
+speed:180,
 life:5,
-description:"Used in cameras, phones and portable devices."
+warranty:"10 years",
+use:"Phones, cameras and tablets",
+link:"#"
 },
 
 
 {
-name:"Cloud Storage",
-capacity:"Flexible",
+name:"SanDisk Extreme USB",
+category:"USB",
+capacity:"256GB",
+price:35,
+speed:150,
+life:5,
+warranty:"Lifetime limited",
+use:"Portable file transfer",
+link:"#"
+},
+
+
+{
+name:"Google One",
+category:"Cloud",
+capacity:"2TB",
 price:100,
-tb:2,
-speed:4,
+speed:"Internet dependent",
 life:100,
-description:"Online storage accessible anywhere."
+warranty:"Subscription service",
+use:"Online backup and file access",
+link:"#"
 }
+
 
 ];
 
 
 
-function cost(item){
-
-return (item.price/item.tb).toFixed(2);
-
-}
+function displayProducts(items){
 
 
-
-function display(data){
-
-
-let container=document.getElementById("cards");
+const container=document.getElementById("products");
 
 container.innerHTML="";
 
 
-data.forEach(item=>{
-
-
-let lifespan=(item.life/100)*100;
+items.forEach(product=>{
 
 
 container.innerHTML += `
@@ -359,59 +507,82 @@ container.innerHTML += `
 <div class="card">
 
 
-<h2>${item.name}</h2>
+<h2>${product.name}</h2>
 
 
-<p>${item.description}</p>
+<p>
+
+<strong>Type:</strong>
+${product.category}
+
+</p>
 
 
-<div class="stat">
+<p>
+
 <strong>Capacity:</strong>
-${item.capacity}
-</div>
+${product.capacity}
+
+</p>
 
 
-<div class="stat">
-<strong>Example Price:</strong>
-$${item.price}
-</div>
+
+<p class="price">
+
+$${product.price}
+
+</p>
 
 
-<div class="stat">
-<strong>Cost per TB:</strong>
-$${cost(item)}
-</div>
 
+<div class="info">
 
-<div class="stat">
 <strong>Speed:</strong>
-${item.speed}/5
-</div>
-
-
-<div class="stat">
-<strong>Lifespan:</strong>
-${item.life} years
-</div>
-
-
-<div class="bar">
-
-<div class="fill" style="width:${lifespan}%"></div>
+${product.speed}
+${typeof product.speed === "number" ? " MB/s" : ""}
 
 </div>
 
 
-<br>
+
+<div class="info">
+
+<strong>Expected lifespan:</strong>
+${product.life} years
+
+</div>
+
+
+
+<div class="info">
+
+<strong>Warranty:</strong>
+${product.warranty}
+
+</div>
+
+
+
+<div class="info">
+
+<strong>Best for:</strong>
+${product.use}
+
+</div>
+
 
 
 <button>
+
 Compare
+
 </button>
 
 
-<button>
+<button onclick="window.open('${product.link}')">
+
 Buy
+
 </button>
 
 
@@ -420,6 +591,7 @@ Buy
 
 `;
 
+
 });
 
 
@@ -427,83 +599,131 @@ Buy
 
 
 
-function update(){
+function updateProducts(){
 
 
-let value=document
+let search=document
 .getElementById("search")
 .value
 .toLowerCase();
 
 
-let filter=document
-.getElementById("filter")
+
+let category=document
+.getElementById("category")
 .value;
 
 
 
-let result=storage.filter(x=>
-
-x.name.toLowerCase()
-.includes(value)
-
-);
+let sort=document
+.getElementById("sort")
+.value;
 
 
 
-if(filter==="cheap"){
-
-result.sort((a,b)=>
-cost(a)-cost(b)
-);
-
-}
+let results=products.filter(product=>{
 
 
-
-if(filter==="long"){
-
-result.sort((a,b)=>
-b.life-a.life
-);
-
-}
+let matchesSearch =
+product.name
+.toLowerCase()
+.includes(search);
 
 
 
-if(filter==="fast"){
+let matchesCategory =
+category==="all" ||
+product.category===category;
 
-result.sort((a,b)=>
-b.speed-a.speed
-);
+
+
+return matchesSearch && matchesCategory;
+
+
+});
+
+
+
+if(sort==="price"){
+
+results.sort((a,b)=>a.price-b.price);
 
 }
 
 
 
-display(result);
+if(sort==="speed"){
+
+results.sort((a,b)=>{
+
+if(typeof a.speed==="number" &&
+typeof b.speed==="number")
+{
+return b.speed-a.speed;
+}
+
+return 0;
+
+});
+
+}
+
+
+
+if(sort==="life"){
+
+results.sort((a,b)=>b.life-a.life);
+
+}
+
+
+
+displayProducts(results);
 
 
 }
+
 
 
 
 document
 .getElementById("search")
-.addEventListener("input",update);
+.addEventListener("input",updateProducts);
 
 
 
 document
-.getElementById("filter")
-.addEventListener("change",update);
+.getElementById("category")
+.addEventListener("change",updateProducts);
 
 
 
-display(storage);
+document
+.getElementById("sort")
+.addEventListener("change",updateProducts);
+
+
+
+displayProducts(products);
 
 
 </script>
+
+
+
+<footer>
+
+<p>
+© 2026 Storage Compare Pro
+</p>
+
+<p>
+Compare storage. Understand technology. Make better choices.
+</p>
+
+</footer>
+
+
 
 </body>
 
