@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Storage Compare Pro+</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#0f172a;
+    color:#e2e8f0;
+}
+
+header {
+    background:linear-gradient(90deg,#0ea5e9,#1e293b);
+    padding:20px;
+    text-align:center;
+    font-size:1.8rem;
+}
+
+.container {
+    display:grid;
+    grid-template-columns: 1fr 300px;
+    gap:20px;
+    padding:20px;
+}
+
+.main { width:100%; }
+
+.sidebar {
+    background:#020617;
+    padding:15px;
+}
+
+.ad {
+    border:2px dashed #334155;
+    padding:20px;
+    margin-bottom:20px;
+    text-align:center;
+    color:#94a3b8;
+}
+
+.card {
+    background:#1e293b;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:10px;
+}
+
+.longevity-bar {
+    height:10px;
+    background:#334155;
+    border-radius:5px;
+    overflow:hidden;
+    margin-top:5px;
+}
+
+.longevity-fill {
+    height:100%;
+    background:#22c55e;
+}
+
+button {
+    padding:8px 12px;
+    background:#0ea5e9;
+    border:none;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+select {
+    padding:8px;
+    margin-bottom:15px;
+}
+
+.highlight {
+    border:2px solid #22c55e;
+}
+
+footer {
+    text-align:center;
+    padding:20px;
+    background:#020617;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>Storage Compare Pro+ (Longevity Edition)</header>
+
+<div class="container">
+
+<div class="main">
+
+<div class="ad">Header Ad (728x90)</div>
+
+<h2>Filter</h2>
+<select id="filter">
+    <option value="all">All</option>
+    <option value="fast">Fast Only</option>
+    <option value="cheap">Cheapest</option>
+    <option value="longest">Longest Lifespan</option>
+</select>
+
+<div id="cards"></div>
+
+<h2>Cost vs Longevity</h2>
+<canvas id="chart"></canvas>
+
+<h2>Saved Comparisons</h2>
+<div id="saved"></div>
+
+<div class="ad">In-content Ad</div>
+
+</div>
+
+<div class="sidebar">
+<div class="ad">Sidebar Ad (300x250)</div>
+<div class="ad">Affiliate Links Area</div>
+</div>
+
+</div>
+
+<footer>© 2026 Storage Compare Pro+</footer>
+
+<script>
+
+const storageData = [
+    {name:"HDD", speed:1, price:80, capacity:4, lifespan:5, link:"#"},
+    {name:"SSD", speed:3, price:120, capacity:2, lifespan:7, link:"#"},
+    {name:"NVMe", speed:5, price:180, capacity:2, lifespan:6, link:"#"},
+    {name:"USB", speed:2, price:40, capacity:0.5, lifespan:4, link:"#"},
+    {name:"SD Card", speed:2, price:60, capacity:0.5, lifespan:4, link:"#"},
+    {name:"Cloud (Year)", speed:4, price:100, capacity:2, lifespan:100, link:"#"} // depends on provider
+];
+
+function costPerTB(item){
+    return item.price / item.capacity;
+}
+
+function maxLifespan(){
+    return Math.max(...storageData.map(d=>d.lifespan));
+}
+
+function renderCards(filter="all"){
+    const container = document.getElementById("cards");
+    container.innerHTML="";
+
+    let data = [...storageData];
+
+    if(filter==="fast") data = data.filter(d=>d.speed>=4);
+    if(filter==="cheap") data = data.sort((a,b)=>costPerTB(a)-costPerTB(b));
+    if(filter==="longest") data = data.sort((a,b)=>b.lifespan-a.lifespan);
+
+    const best = data.reduce((a,b)=> a.lifespan>b.lifespan?a:b);
+
+    data.forEach(item=>{
+        const div = document.createElement("div");
+        div.className="card";
+
+        if(item.name === best.name) div.classList.add("highlight");
+
+        const percent = (item.lifespan / maxLifespan()) * 100;
+
+        div.innerHTML = `
+            <h3>${item.name}</h3>
+            <p>Capacity: ${item.capacity} TB</p>
+            <p>Price: $${item.price}</p>
+            <p>Cost/TB: $${costPerTB(item).toFixed(2)}</p>
+            <p><strong>Lifespan:</strong> ~${item.lifespan} years</p>
+
+            <div class="longevity-bar">
+                <div class="longevity-fill" style="width:${percent}%"></div>
+            </div>
+
+            <br>
+            <a href="${item.link}" target="_blank">Buy (Affiliate)</a><br><br>
+            <button onclick='saveItem("${item.name}")'>Save</button>
+        `;
+
+        container.appendChild(div);
+    });
+
+    updateChart(data);
+}
+
+function updateChart(data){
+    const ctx = document.getElementById("chart");
+
+    if(window.chart) window.chart.destroy();
+
+    window.chart = new Chart(ctx, {
+        type:"bar",
+        data:{
+            labels:data.map(d=>d.name),
+            datasets:[
+                {
+                    label:"Cost per TB",
+                    data:data.map(d=>costPerTB(d))
+                },
+                {
+                    label:"Lifespan (years)",
+                    data:data.map(d=>d.lifespan)
+                }
+            ]
+        }
+    });
+}
+
+function saveItem(name){
+    let saved = JSON.parse(localStorage.getItem("saved")) || [];
+    if(!saved.includes(name)){
+        saved.push(name);
+        localStorage.setItem("saved", JSON.stringify(saved));
+    }
+    renderSaved();
+}
+
+function renderSaved(){
+    let saved = JSON.parse(localStorage.getItem("saved")) || [];
+    const div = document.getElementById("saved");
+
+    div.innerHTML = saved.map(s=>`<div class="card">${s}</div>`).join("");
+}
+
+document.getElementById("filter").addEventListener("change", e=>{
+    renderCards(e.target.value);
+});
+
+renderCards();
+renderSaved();
+
+</script>
+
+</body>
+</html>
